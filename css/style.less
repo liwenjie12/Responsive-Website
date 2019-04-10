@@ -25,6 +25,19 @@
   border-radius:@x;
   -webkit-border-radius: @x;
 }
+.transform(@x){
+  transform:scale(@x);
+  -webkit-transform:scale(@x) ;
+  -ms-transform:scale(@x);
+  -moz-transform:scale(@x);
+  -o-transform:scale(@x);
+}
+.animation(@key,@time){
+  animation: @key @time ease;
+  -webkit-animation:@key @time ease;
+  -moz-animation:@key @time ease;
+  -o-animation:@key @time ease;
+}
 @media screen and (min-width:1000px){
   html{
     font-size: 16px;
@@ -67,19 +80,18 @@ header{
   .position(relative);
   .shadow(0,0,10px,#aaa);
   .container{
-    width:90%;
+    width:100%;
     height:5rem;
-    margin:auto;
     line-height:5rem;
     .position(relative);
     .header-logo{
       height:100%;
       .position(absolute);
-      left:0;
+      left:5%;
     }
     nav{
       .position(absolute);
-      right:0;
+      right:5%;
       a{
         display: inline-block;
         padding:0 1rem;
@@ -89,7 +101,7 @@ header{
       display:none;
       line-height: 5rem;
       .position(absolute);
-      right:0;
+      right:5%;
       img{
         display: inline-block;
         vertical-align: middle;
@@ -248,13 +260,52 @@ header{
       width:100%;
     }
   }
-  .container{
-    nav{
-      display:none;
+  header{
+    .container{
+      nav{
+        z-index: 1;
+        top:100%;
+        right:0;
+        width:100%;
+        background: #fdfdfd;
+        border-top: 1px solid #ddd;
+        .shadow(0,0,2px,#aaa);
+        .transform(0);
+        animation-fill-mode: forwards;
+        a{
+          display:block;
+          line-height: 2rem;
+          border-bottom: 1px solid #ddd;
+          text-align: center;
+        }
+      }
+      .header-menu{
+        cursor:pointer;
+        display: inline-block !important;
+      }
     }
-    .header-menu{
-      display: inline-block !important;
+  }
+  @keyframes show{
+    from{
+      .transform(0);
     }
+    to{
+      .transform(1);
+    }
+  }
+  @keyframes hide{
+    from{
+      .transform(1);
+    }
+    to{
+      .transform(0);
+    }
+  }
+  .scaleIn{
+    .animation(show,1s);
+  }
+  .scaleOut{
+    .animation(hide,1s);
   }
   .introduction{
     .introduction-word{
