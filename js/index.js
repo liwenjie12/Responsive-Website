@@ -11,4 +11,20 @@ window.onload=function () {
        }
    }
    check();
+   function fixed() {
+       var header=document.getElementsByTagName("header")[0];
+       window.addEventListener("scroll",function () {
+           var scroll=document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset;
+           var height=parseInt(window.getComputedStyle(header).height);
+           if(scroll>height){
+               console.log(2);
+               header.style.position="fixed";
+               header.style.top="0";
+           }
+           else{
+               header.style.position="relative";
+           }
+       });
+   }
+   fixed();
 }
