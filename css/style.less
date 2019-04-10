@@ -85,6 +85,16 @@ header{
         padding:0 1rem;
       }
     }
+    .header-menu{
+      display:none;
+      line-height: 5rem;
+      .position(absolute);
+      right:0;
+      img{
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
   }
 }
 .swipe{
@@ -118,6 +128,7 @@ header{
     }
     .introduction-swipe{
       width:100%;
+      overflow: hidden;
       .position(relative);
       .video{
         width:100%;
@@ -233,10 +244,16 @@ header{
 }
 @media screen and (max-width:999px){
   html{
-    width:100%;
-    overflow: hidden;
     .col-md{
       width:100%;
+    }
+  }
+  .container{
+    nav{
+      display:none;
+    }
+    .header-menu{
+      display: inline-block !important;
     }
   }
   .introduction{
@@ -253,6 +270,9 @@ header{
   .music{
     li{
       margin-bottom: 1rem;
+      div{
+        .shadow(0,0,5px,#aaa);
+      }
     }
   }
 }
