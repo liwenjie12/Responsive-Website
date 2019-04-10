@@ -1,0 +1,203 @@
+body .col-1 {
+    width: 100%;
+}
+body .col-2 {
+    width: 50%;
+}
+body .col-3 {
+    width: 33.33333333333333%;
+}
+body .col-4 {
+    width: 25%;
+}
+@media screen and (min-width: 1000px) {
+    html {
+        font-size: 16px;
+    }
+    .swipe img {
+        height: 31.25rem;
+    }
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+a {
+    color: #444;
+    text-decoration: none;
+}
+ul,
+li {
+    list-style: none;
+}
+header {
+    background: #fdfdfd;
+    z-index: 2;
+    position: relative;
+    box-shadow: 0 0 10px #aaa;
+    -webkit-box-shadow: 0 0 10px #aaa;
+    -moz-box-shadow: 0 0 10px #aaa;
+}
+header .container {
+    width: 90%;
+    height: 5rem;
+    margin: auto;
+    line-height: 5rem;
+    position: relative;
+}
+header .container .header-logo {
+    height: 100%;
+    position: absolute;
+    left: 0;
+}
+header .container nav {
+    position: absolute;
+    right: 0;
+}
+header .container nav a {
+    display: inline-block;
+    padding: 0 1rem;
+}
+.swipe {
+    width: 100%;
+    height: auto;
+    position: relative;
+    top: 0;
+    z-index: 1;
+}
+.swipe img {
+    width: 100%;
+}
+.introduction {
+    padding: 1rem 0;
+    background: #fafafa;
+}
+.introduction div {
+    float: left;
+}
+.introduction::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.introduction .introduction-image {
+    padding: 1rem 2rem;
+}
+.introduction .introduction-image h3 {
+    text-align: center;
+    padding: 1rem 0;
+    font-weight: bold;
+    color: #4d4d4d;
+}
+.introduction .introduction-image .introduction-swipe {
+    width: 100%;
+    position: relative;
+}
+.introduction .introduction-image .introduction-swipe .video {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.introduction .introduction-image .introduction-swipe img {
+    width: 100%;
+    height: 15rem;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+.introduction .introduction-word {
+    padding: 1rem 2rem;
+}
+.introduction .introduction-word h3 {
+    text-align: center;
+    padding: 1rem 0;
+    font-weight: bold;
+    color: #4d4d4d;
+}
+.introduction .introduction-word p {
+    color: #4d4d4d;
+    width: 80%;
+    text-indent: 2rem;
+    margin: auto;
+    font-size: 0.875rem;
+    padding: 1rem;
+    border: 1px solid #4d4d4d;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+.actor {
+    padding: 1rem 0;
+    width: 80%;
+    margin: auto;
+}
+.actor h3 {
+    text-align: center;
+    font-weight: bold;
+    color: #4d4d4d;
+    padding: 1rem 0;
+}
+.actor .actor-list {
+    margin-top: 3rem;
+    padding: 3rem 0;
+}
+.actor .actor-list::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.actor .actor-list .actor-list-item {
+    float: left;
+    text-align: center;
+}
+.actor .actor-list .actor-list-item img {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+}
+.actor .actor-list .actor-list-item p {
+    line-height: 2rem;
+    color: #4d4d4d;
+    padding: 0 1rem;
+    font-size: 0.875rem;
+}
+.music {
+    background: #fafafa;
+    padding: 3rem 0;
+}
+.music h3 {
+    text-align: center;
+    font-weight: bold;
+    color: #4d4d4d;
+    padding: 1rem 0;
+}
+.music ul {
+    width: 80%;
+    margin: auto;
+    padding: 3rem 0;
+}
+.music ul::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.music ul li {
+    text-align: center;
+    float: left;
+    padding: 0 1rem;
+}
+.music ul li div {
+    background: #fff;
+}
+.music ul li img {
+    width: 100%;
+    max-height: 15.625rem;
+}
+.music ul li p {
+    line-height: 2rem;
+    color: #4d4d4d;
+    padding: 0 1rem;
+    font-size: 0.875rem;
+}

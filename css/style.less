@@ -1,3 +1,4 @@
+
 .shadow(@x,@y,@spread,@color){
   box-shadow:@x @y @spread @color;
   -webkit-box-shadow:@x @y @spread @color;
@@ -13,9 +14,9 @@
 }
 .grid(@num,@i:1) when (@num<=4){
   .col-@{num}{
-    width:@i/@num*100%;
+    width:(@i/@num*100%);
   }
-  .grid(@num+1);
+  .grid((@num+1));
 }
 .border(){
   border:1px solid red;
@@ -24,15 +25,23 @@
   border-radius:@x;
   -webkit-border-radius: @x;
 }
-body{
-  .grid(1);
-}
 @media screen and (min-width:1000px){
   html{
     font-size: 16px;
+    .grid(1);
   }
   .swipe img{
     height:31.25rem;
+  }
+}
+@media screen and (max-width:999px){
+  html{
+    .col-md{
+      width:100%;
+    }
+  }
+  .actor-list-item{
+    margin-bottom: 1rem;
   }
 }
 *{
@@ -106,15 +115,22 @@ header{
       width:100%;
       .position(relative);
       .video{
+        width:100%;
+        height:100%;
         .position(absolute);
-        left:0;
-        top:0;
+        left:12%;
+        top:5.25%;
       }
-    }
-    .introduction-swipe img{
-      width:100%;
-      height:15rem;
-      .radius(10px);
+      img{
+        width:100%;
+        height:15rem;
+        .radius(10px);
+      }
+      .video video{
+        width:72%;
+        height:87.5%;
+        object-fit: fill
+      }
     }
   }
   .introduction-word{
