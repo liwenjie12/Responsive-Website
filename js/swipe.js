@@ -69,25 +69,3 @@ swipe.prototype={
         this.el.addEventListener("touchend",end.bind(this,event));
     }
 };
-var a=new swipe({
-    el: "list",
-    swipeLeft: function (event) {
-        event.preventDefault();
-        var left=parseInt(event.currentTarget.style.left) || parseInt(window.getComputedStyle(event.currentTarget).left);
-        left=left-200+"px";
-        if(left=="-600px"){
-            return;
-        }
-        event.currentTarget.style.left=left;
-    },
-    swipeRight:function (event) {
-        event.preventDefault();
-        var left=parseInt(event.currentTarget.style.left) || parseInt(window.getComputedStyle(event.currentTarget).left);
-        left=left+200;
-        if(left>0){
-            return;
-        }
-        event.currentTarget.style.left=left+"px";
-    },
-});
-console.log(a);

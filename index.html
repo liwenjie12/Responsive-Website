@@ -26,7 +26,17 @@
         </div>
     </header>
     <div class="swipe">
-        <img src="image/swipe.jpg" />
+        <ul id="swipe-item">
+            <li>
+                <img src="image/swipe.jpg" />
+            </li>
+            <li>
+                <img src="image/swipe1.jpeg" />
+            </li>
+            <li>
+                <img src="image/swipe2.jpg" />
+            </li>
+        </ul>
     </div>
     <arricle>
         <div class="col-1 introduction">
@@ -126,5 +136,33 @@
         </div>
     </arricle>
 <script src="js/index.js"></script>
+<script src="js/swipe.js"></script>
+<script>
+    var swiper=new swipe({
+        el:"swipe-item",
+        swipeLeft:function (event) {
+            event=event|| window.event;
+            event.preventDefault();
+            var width=document.body.offsetWidth;
+            var left=parseInt(event.currentTarget.style.left) || parseInt(window.getComputedStyle(event.currentTarget).left);
+            left=left-width+"px";
+            if(left==-3*width+"px"){
+                return;
+            }
+            event.currentTarget.style.left=left;
+        },
+        swipeRight:function (event) {
+            event=event|| window.event;
+            event.preventDefault();
+            var width=document.body.offsetWidth;
+            var left=parseInt(event.currentTarget.style.left) || parseInt(window.getComputedStyle(event.currentTarget).left);
+            left=left+width;
+            if(left>0){
+                return;
+            }
+            event.currentTarget.style.left=left+"px";
+        },
+    })
+</script>
 </body>
 </html>
