@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+       *{
+           margin:0;
+           padding:0;
+           list-style: none;
+           box-sizing: border-box;
+       }
+        .box{
+            width:200px;
+            height:200px;
+            border:1px solid red;
+            margin:100px auto;
+            overflow: hidden;
+        }
+        #list{
+            width:600px;
+            position:relative;
+            left:0;
+            height:100%;
+            transition:all 1s ease;
+        }
+        #list li{
+            float:left;
+        }
+        #list img{
+            width:200px;
+            height:200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul id="list">
+            <li>
+                <img src="image/zhangjie.jpg" />
+            </li>
+            <li>
+                <img src="image/yukewei.jpg" />
+            </li>
+            <li>
+                <img src="image/zhangbichen.jpg" />
+            </li>
+        </ul>
+    </div>
+<script src="js/swipe.js"></script>
+</body>
+</html>
