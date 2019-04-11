@@ -25,17 +25,19 @@ swipe.prototype={
         }
     },
     event:function () {
-        function start(event) {
+        function start() {
             this.start={
-                x:event.clientX,
-                y:event.clientY
+                x:event.clientX?event.clientX : event.changedTouches[0].clientX,
+                y:event.clientY?event.clientY : event.changedTouches[0].clientY
             }
         }
-        function end(event) {
+        function end() {
+            console.log(event);
             this.end={
-                x:event.clientX,
-                y:event.clientY
+                "x":event.clientX?event.clientX : event.changedTouches[0].clientX,
+                "y":event.clientY?event.clientY : event.changedTouches[0].clientY
             };
+            console.log(this.end);
             var x=this.end.x-this.start.x;
             var y=this.end.y-this.start.y;
             if(Math.abs(x)>Math.abs(y)){
@@ -57,14 +59,11 @@ swipe.prototype={
         }
         this.el.addEventListener("mousedown",start.bind(this),false);
         this.el.addEventListener("mouseup",end.bind(this),false);
-        this.el.addEventListener("touchstart",start.bind(this));
+        this.el.addEventListener("touchstart",start.bind(this,event));
         this.el.addEventListener("touchmove",function () {
             event.preventDefault();
         });
-        this.el.addEventListener("touchend",end.bind(this));
-        this.el.addEventListener("tap",function () {
-            alert(1);
-        });
+        this.el.addEventListener("touchend",end.bind(this,event));
     }
 };
 var a=new swipe({
