@@ -55,10 +55,16 @@ swipe.prototype={
                 }
             }
         }
-        this.el.addEventListener("mousedown",start.bind(this));
-        this.el.addEventListener("mouseup",end.bind(this));
+        this.el.addEventListener("mousedown",start.bind(this),false);
+        this.el.addEventListener("mouseup",end.bind(this),false);
         this.el.addEventListener("touchstart",start.bind(this));
+        this.el.addEventListener("touchmove",function () {
+            event.preventDefault();
+        });
         this.el.addEventListener("touchend",end.bind(this));
+        this.el.addEventListener("tap",function () {
+            alert(1);
+        });
     }
 };
 var a=new swipe({
