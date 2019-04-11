@@ -23,6 +23,9 @@ swipe.prototype={
         if(window.dispatchEvent){
             this.el.dispatchEvent(e);
         }
+        else{
+            this.event._fireEvent(e);
+        }
     },
     event:function () {
         function start() {
@@ -70,16 +73,21 @@ var a=new swipe({
     el: "list",
     swipeLeft: function (event) {
         event.preventDefault();
-        event.currentTarget.style.left="-200px";
+        var left=parseInt(event.currentTarget.style.left) || parseInt(window.getComputedStyle(event.currentTarget).left);
+        left=left-200+"px";
+        if(left=="-600px"){
+            return;
+        }
+        event.currentTarget.style.left=left;
     },
-    swipeRight:function () {
-        alert("右滑");
-    },
-    swipeTop:function () {
-        alert("上画");
-    },
-    swipeBottom:function () {
-        alert("下滑");
+    swipeRight:function (event) {
+        event.preventDefault();
+        var left=parseInt(event.currentTarget.style.left) || parseInt(window.getComputedStyle(event.currentTarget).left);
+        left=left+200;
+        if(left>0){
+            return;
+        }
+        event.currentTarget.style.left=left+"px";
     },
 });
 console.log(a);
