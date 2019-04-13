@@ -2,9 +2,21 @@ function swipe(e) {
     this.el=document.getElementById(e.el);
     this.addEventListener(e);
     this.event();
+    if(e.autoplay){
+        this.autoplay();
+    }
 }
 swipe.prototype={
     constructor:swipe,
+    /*绑定相同事件*/
+    on:function(type,fn){
+        if(!type instanceof Array){
+           return;
+        }
+        for(var i=0;i<type.length;i++){
+            this.el.addEventListener(type[i],fn.bind(this));
+        }
+    },
     addEventListener:function (e) {
         for(var item in e){
             if(item==="swipeLeft" || item==="swipeRight" || item==="swipeTop" || item==="swipeBottom"){
@@ -67,5 +79,33 @@ swipe.prototype={
             event.preventDefault();
         });
         this.el.addEventListener("touchend",end.bind(this,event));
+    },
+    autoplay:function () {
+        var time=setInterval(function () {
+            var width=document.body.offsetWidth;
+            var left=parseInt(this.el.style.left) || parseInt(window.getComputedStyle(this.el).left);
+            left=left-width+"px";
+            if(left<=-3*width+"px"){
+                this.el.style.left="0px";
+                return;
+            }
+            this.el.style.left=left;
+        }.bind(this),2000);
+        this.on(["mouseover","touchstart"],function () {
+            clearInterval(time);
+        });
+        this.on(["mouseout","touchend"],function () {
+            time=setInterval(function () {
+                var width=document.body.offsetWidth;
+                var left=parseInt(this.el.style.left) || parseInt(window.getComputedStyle(this.el).left);
+                left=left-width+"px";
+                if(left<=-3*width+"px"){
+                    this.el.style.left="0px";
+                    return;
+                }
+                this.el.style.left=left;
+            }.bind(this),2000);
+        })
     }
+
 };

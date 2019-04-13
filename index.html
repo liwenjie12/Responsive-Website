@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--<link rel="stylesheet" type="text/css" href="css/style.css" />-->
     <link rel="stylesheet/less" type="text/less" href="css/style.less" />
+    <link rel="stylesheet/less" type="text/less" href="css/animate.less" />
     <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.8.1/less.min.js" ></script>
 </head>
 <body>
@@ -28,13 +29,13 @@
     <div class="swipe">
         <ul id="swipe-item">
             <li>
-                <img src="image/swipe.jpg" />
+                <img src="image/swipe.jpg" ondragstart="return false"/>
             </li>
             <li>
-                <img src="image/swipe1.jpeg" />
+                <img src="image/swipe1.jpeg" ondragstart="return false"/>
             </li>
             <li>
-                <img src="image/swipe2.jpg" />
+                <img src="image/swipe2.jpg" ondragstart="return false"/>
             </li>
         </ul>
     </div>
@@ -72,25 +73,25 @@
             <a name="actor"></a>
             <h3>角色介绍</h3>
             <ul class="actor-list">
-                <li class="col-4 actor-list-item col-md">
+                <li class="col-4 actor-list-item col-md scroll-animation" data-animation="transformRight">
                     <img src="image/baiqian.jpg" />
                     <p>演员:杨幂</p>
                     <p>配音 季冠霖、刘惠云</p>
                     <p>简介  青丘女君，九尾白狐，四海八荒第一绝色</p>
                 </li>
-                <li class="col-4 actor-list-item col-md">
+                <li class="col-4 actor-list-item col-md scroll-animation" data-animation="transformLeft">
                     <img src="image/yehua.jpg" />
                     <p>演员 赵又廷</p>
                     <p>配音 边江、李镇然</p>
                     <p>简介  九重天太子，青丘帝姬白浅未婚夫，墨渊胞弟，昆仑虚上神</p>
                 </li>
-                <li class="col-4 actor-list-item col-md">
+                <li class="col-4 actor-list-item col-md scroll-animation" data-animation="transformRight">
                     <img src="image/fengjiu.jpg" />
                     <p>演员 迪丽热巴</p>
                     <p>配音 乔诗语、柚子蜜</p>
                     <p>简介  白浅二哥白奕之女，白浅唯一的亲侄女，爱慕东华帝君</p>
                 </li>
-                <li class="col-4 actor-list-item col-md">
+                <li class="col-4 actor-list-item col-md scroll-animation" data-animation="transformLeft">
                     <img src="image/zeyan.jpg" />
                     <p>演员 张智尧</p>
                     <p>配音 陈浩、雷霆</p>
@@ -102,7 +103,7 @@
             <a name="music"></a>
             <h3>音乐插曲</h3>
             <ul class="col-md">
-                <li class="col-3 col-md">
+                <li class="col-3 col-md scroll-animation" data-animation="scaleIn">
                     <div>
                         <img src="image/zhangjie.jpg" />
                         <p>《三生三世十里桃花》主题曲</p>
@@ -112,7 +113,7 @@
                         <p>演唱：张杰</p>
                     </div>
                 </li>
-                <li class="col-3 col-md">
+                <li class="col-3 col-md scroll-animation" data-animation="scaleIn">
                     <div>
                         <img src="image/zhangbichen.jpg" />
                         <p>《三生三世十里桃花》片尾曲</p>
@@ -122,7 +123,7 @@
                         <p>演唱：张碧晨、杨宗纬</p>
                     </div>
                 </li>
-                <li class="col-3 col-md">
+                <li class="col-3 col-md scroll-animation" data-animation="scaleIn">
                     <div>
                         <img src="image/yukewei.jpg" />
                         <p>《三生三世十里桃花》插曲</p>
@@ -137,9 +138,11 @@
     </arricle>
 <script src="js/index.js"></script>
 <script src="js/swipe.js"></script>
-<script>
+    <script src="js/show.js"></script>
+<script >
     var swiper=new swipe({
         el:"swipe-item",
+        autoplay:true,
         swipeLeft:function (event) {
             event=event|| window.event;
             event.preventDefault();
@@ -162,7 +165,7 @@
             }
             event.currentTarget.style.left=left+"px";
         },
-    })
+    });
 </script>
 </body>
 </html>

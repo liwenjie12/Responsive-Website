@@ -1,0 +1,130 @@
+.animation(@key,@time){
+  animation: @key @time ease;
+  -webkit-animation:@key @time ease;
+  -moz-animation:@key @time ease;
+  -o-animation:@key @time ease;
+}
+.transform(@x:0,@y:0,@z:1){
+  transform:translate(@x,@y) scale(@z);
+  -webkit-transform:translate(@x,@y) scale(@z) ;
+  -ms-transform:translate(@x,@y) scale(@z);
+  -moz-transform:translate(@x,@y) scale(@z);
+  -o-transform:translate(@x,@y) scale(@z);
+}
+.scaleIn{
+  .animation(transformIn,2s);
+}
+.transformLeft{
+  .animation(transformLeft,2s);
+}
+.transformRight{
+  .animation(transformRight,2s);
+}
+@keyframes transformIn {
+  from{
+    filter: alpha(opacity=0);
+    opacity: 0;
+    .transform(0,0,0);
+  }
+  to{
+    filter: alpha(opacity=100);
+    opacity:1;
+    .transform(0,0,1);
+  }
+}
+@-webkit-keyframes transformIn {
+  from{
+    filter: alpha(opacity=0);
+    opacity: 0;
+    .transform(0,0,0);
+  }
+  to{
+    filter: alpha(opacity=100);
+    opacity:1;
+    .transform(0,0,1);
+  }
+}
+@-moz-keyframes transformIn {
+  from{
+    filter: alpha(opacity=0);
+    opacity: 0;
+    .transform(0,0,0);
+  }
+  to{
+    filter: alpha(opacity=100);
+    opacity:1;
+    .transform(0,0,1);
+  }
+}
+@keyframes transformLeft {
+  from{
+    filter: alpha(opacity=0);
+    opacity: 0;
+    .transform(-100%,0,1);
+  }
+  to{
+    filter: alpha(opacity=100);
+    opacity:1;
+    .transform(0,0,1);
+  }
+}
+@-webkit-keyframes transformLeft {
+  from{
+    filter: alpha(opacity=0);
+    opacity: 0;
+    .transform(-100%,0,1);
+  }
+  to{
+    filter: alpha(opacity=100);
+    opacity:1;
+    .transform(0,0,1);
+  }
+}
+@-moz-keyframes transformLeft {
+  from{
+    filter: alpha(opacity=0);
+    opacity: 0;
+    .transform(-100%,0,1);
+  }
+  to{
+    filter: alpha(opacity=100);
+    opacity:1;
+    .transform(0,0,1);
+  }
+}
+@keyframes transformRight {
+  from{
+    filter: alpha(opacity=0);
+    opacity: 0;
+    .transform(100%,0,1);
+  }
+  to{
+    filter: alpha(opacity=100);
+    opacity:1;
+    .transform(0,0,1);
+  }
+}
+@-webkit-keyframes transformRight {
+  from{
+    filter: alpha(opacity=0);
+    opacity: 0;
+    .transform(100%,0,1);
+  }
+  to{
+    filter: alpha(opacity=100);
+    opacity:1;
+    .transform(0,0,1);
+  }
+}
+@-moz-keyframes transformRight {
+  from{
+    filter: alpha(opacity=0);
+    opacity: 0;
+    .transform(100%,0,1);
+  }
+  to{
+    filter: alpha(opacity=100);
+    opacity:1;
+    .transform(0,0,1);
+  }
+}
