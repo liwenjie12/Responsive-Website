@@ -82,10 +82,12 @@ swipe.prototype={
     },
     autoplay:function () {
         var time=setInterval(function () {
+            console.log(1);
             var width=document.body.offsetWidth;
+            console.log(width);
             var left=parseInt(this.el.style.left) || parseInt(window.getComputedStyle(this.el).left);
             left=left-width+"px";
-            if(left<=-3*width+"px"){
+            if(parseInt(left)<=-3*width){
                 this.el.style.left="0px";
                 return;
             }
@@ -99,7 +101,7 @@ swipe.prototype={
                 var width=document.body.offsetWidth;
                 var left=parseInt(this.el.style.left) || parseInt(window.getComputedStyle(this.el).left);
                 left=left-width+"px";
-                if(left<=-3*width+"px"){
+                if(parseInt(left)<=-3*width){
                     this.el.style.left="0px";
                     return;
                 }
