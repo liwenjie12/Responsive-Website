@@ -1,21 +1,32 @@
-body .col-1 {
-    width: 100%;
-}
-body .col-2 {
-    width: 50%;
-}
-body .col-3 {
-    width: 33.33333333333333%;
-}
-body .col-4 {
-    width: 25%;
-}
 @media screen and (min-width: 1000px) {
     html {
         font-size: 16px;
     }
+    html .col-1 {
+        width: 100%;
+    }
+    html .col-2 {
+        width: 50%;
+    }
+    html .col-3 {
+        width: 33.33333333333333%;
+    }
+    html .col-4 {
+        width: 25%;
+    }
     .swipe img {
         height: 31.25rem;
+    }
+}
+@media screen and (max-width: 999px) {
+    html .col-md {
+        width: 100%;
+    }
+    .introduction .introduction-word {
+        padding: 1rem 0;
+    }
+    .actor-list-item {
+        margin-bottom: 1rem;
     }
 }
 * {
@@ -36,30 +47,41 @@ li {
 header {
     background: #fdfdfd;
     z-index: 2;
+    width: 100%;
     position: relative;
     box-shadow: 0 0 10px #aaa;
     -webkit-box-shadow: 0 0 10px #aaa;
     -moz-box-shadow: 0 0 10px #aaa;
 }
 header .container {
-    width: 90%;
+    width: 100%;
     height: 5rem;
-    margin: auto;
     line-height: 5rem;
+    z-index: 100;
     position: relative;
 }
 header .container .header-logo {
     height: 100%;
     position: absolute;
-    left: 0;
+    left: 5%;
 }
 header .container nav {
     position: absolute;
-    right: 0;
+    right: 5%;
 }
 header .container nav a {
     display: inline-block;
     padding: 0 1rem;
+}
+header .container .header-menu {
+    display: none;
+    line-height: 5rem;
+    position: absolute;
+    right: 5%;
+}
+header .container .header-menu img {
+    display: inline-block;
+    vertical-align: middle;
 }
 .swipe {
     width: 100%;
@@ -67,9 +89,26 @@ header .container nav a {
     position: relative;
     top: 0;
     z-index: 1;
+    overflow: hidden;
 }
 .swipe img {
     width: 100%;
+}
+.swipe ul {
+    position: relative;
+    display: flex;
+    left: 0;
+    transition: all 0.5s linear;
+    -webkit-transition: all 0.5s linear;
+    -moz-transition: all 0.5s linear;
+}
+.swipe ul li {
+    flex: 0 0 100%;
+}
+.swipe ul::after {
+    content: "";
+    display: block;
+    clear: both;
 }
 .introduction {
     padding: 1rem 0;
@@ -94,18 +133,26 @@ header .container nav a {
 }
 .introduction .introduction-image .introduction-swipe {
     width: 100%;
+    overflow: hidden;
     position: relative;
 }
 .introduction .introduction-image .introduction-swipe .video {
+    width: 100%;
+    height: 100%;
     position: absolute;
-    left: 0;
-    top: 0;
+    left: 12%;
+    top: 5.25%;
 }
 .introduction .introduction-image .introduction-swipe img {
     width: 100%;
     height: 15rem;
     border-radius: 10px;
     -webkit-border-radius: 10px;
+}
+.introduction .introduction-image .introduction-swipe .video video {
+    width: 72%;
+    height: 87.5%;
+    object-fit: fill;
 }
 .introduction .introduction-word {
     padding: 1rem 2rem;
@@ -139,8 +186,7 @@ header .container nav a {
     padding: 1rem 0;
 }
 .actor .actor-list {
-    margin-top: 3rem;
-    padding: 3rem 0;
+    padding: 2rem 0;
 }
 .actor .actor-list::after {
     content: "";
@@ -150,6 +196,9 @@ header .container nav a {
 .actor .actor-list .actor-list-item {
     float: left;
     text-align: center;
+    border: 1px solid #aaa;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
 }
 .actor .actor-list .actor-list-item img {
     width: 5rem;
@@ -200,4 +249,102 @@ header .container nav a {
     color: #4d4d4d;
     padding: 0 1rem;
     font-size: 0.875rem;
+}
+@keyframes show {
+    from {
+        -webkit-transform: scale(0);
+        -ms-transform: scale(0);
+        -moz-transform: scale(0);
+        -o-transform: scale(0);
+        transform: scale(0);
+
+    }
+    to {
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        -moz-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+    }
+}
+@keyframes hide {
+    from {
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        -moz-transform: scale(1);
+        -o-transform: scale(1);
+        transform: scale(1);
+    }
+    to {
+        -webkit-transform: scale(0);
+        -ms-transform: scale(0);
+        -moz-transform: scale(0);
+        -o-transform: scale(0);
+        transform: scale(0);
+    }
+}
+@media screen and (max-width: 999px) {
+    html .col-md {
+        width: 100%;
+    }
+    header .container nav {
+        z-index: 10;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        background: #fdfdfd;
+        border-top: 1px solid #ddd;
+        box-shadow: 0 0 2px #aaa;
+        -webkit-box-shadow: 0 0 2px #aaa;
+        -moz-box-shadow: 0 0 2px #aaa;
+        -webkit-transform: scale(0);
+        -ms-transform: scale(0);
+        -moz-transform: scale(0);
+        -o-transform: scale(0);
+        transform: scale(0);
+    }
+    header .container nav a {
+        display: block;
+        line-height: 2rem;
+        border-bottom: 1px solid #ddd;
+        text-align: center;
+    }
+    header .container .header-menu {
+        cursor: pointer;
+        display: inline-block !important;
+    }
+    header .actor {
+        overflow: hidden;
+    }
+    .container .scaleIn {
+        animation: show 1s ease;
+        -webkit-animation: show 1s ease;
+        -moz-animation: show 1s ease;
+        -o-animation: show 1s ease;
+        animation-fill-mode: forwards;
+    }
+    .container .scaleOut {
+        animation: hide 1s ease;
+        -webkit-animation: hide 1s ease;
+        -moz-animation: hide 1s ease;
+        -o-animation: hide 1s ease;
+        animation-fill-mode: forwards;
+    }
+    .introduction .introduction-word {
+        padding: 1rem 0;
+    }
+    .introduction .introduction-image {
+        padding: 1rem 0.5rem;
+    }
+    .actor-list-item {
+        margin-bottom: 1rem;
+    }
+    .music li {
+        margin-bottom: 1rem;
+    }
+    .music li div {
+        box-shadow: 0 0 5px #aaa;
+        -webkit-box-shadow: 0 0 5px #aaa;
+        -moz-box-shadow: 0 0 5px #aaa;
+    }
 }

@@ -3,6 +3,7 @@ window.onload=function () {
        var menu=document.getElementById("menu");
        var nav=document.getElementsByTagName("nav")[0];
        menu.onclick=function () {
+           console.log(window.getComputedStyle(nav).transform);
            switch (nav.className) {
                case "":nav.className="scaleIn";break;
                case "scaleIn":nav.className="scaleOut";break;

@@ -26,11 +26,11 @@
   -webkit-border-radius: @x;
 }
 .transform(@x){
-  transform:scale(@x);
   -webkit-transform:scale(@x) ;
   -ms-transform:scale(@x);
   -moz-transform:scale(@x);
   -o-transform:scale(@x);
+  transform:scale(@x);
 }
 .animation(@key,@time){
   animation: @key @time ease;
@@ -283,7 +283,7 @@ header{
   header{
     .container{
       nav{
-        z-index: 1;
+        z-index: 10;
         top:100%;
         right:0;
         width:100%;
@@ -324,11 +324,13 @@ header{
       .transform(0);
     }
   }
-  .scaleIn{
+  .container .scaleIn{
     .animation(show,1s);
+    animation-fill-mode: forwards;
   }
-  .scaleOut{
+  .container .scaleOut{
     .animation(hide,1s);
+    animation-fill-mode: forwards;
   }
   .introduction{
     .introduction-word{
